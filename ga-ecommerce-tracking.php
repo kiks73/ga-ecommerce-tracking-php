@@ -63,6 +63,11 @@ class ga_ecommerce_tracking
 			CURLOPT_POST           => 1			
 		));
 		
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
+	        	'Content-Type: application/json',                                                                                
+	        	'Content-Length: ' . strlen($this->ga_query_str))                                                                       
+	    	);
+		
 		$response = '';
 		if(
 			( ($response = curl_exec($ch)) === false ) &&
